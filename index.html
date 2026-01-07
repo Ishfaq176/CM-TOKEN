@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CM Token | Official Website</title>
+
+<style>
+/* ================= GLOBAL ================= */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:#000;
+  font-family:'Segoe UI',sans-serif;
+  color:#fff;
+}
+
+/* ================= BANNER ================= */
+.banner-wrapper{
+  position:relative;
+}
+.banner-wrapper img{
+  width:100%;
+  height:500px;
+  object-fit:cover;
+  display:block;
+}
+.banner-text{
+  position:absolute;
+  bottom:40px;
+  left:50%;
+  transform:translateX(-50%);
+  text-align:center;
+}
+.banner-text h1{
+  font-size:52px;
+  letter-spacing:6px;
+  color:#fff;
+  margin:0;
+  text-shadow:0 0 15px rgba(255,255,255,0.8);
+}
+.banner-text p{
+  margin-top:10px;
+  font-size:18px;
+  color:#f0f0f0;
+  letter-spacing:1.5px;
+}
+
+/* ================= HEADER ================= */
+header{
+  text-align:center;
+  padding:40px 20px;
+  background:#0d0d0d;
+  border-bottom:2px solid #00ffff;
+}
+.logo{
+  width:150px;
+  border-radius:50%;
+  margin:20px auto;
+  box-shadow:0 0 30px #00ffff;
+}
+
+/* ================= BUTTONS (GLOW + MIRROR) ================= */
+.btn{
+  position:relative;
+  display:inline-block;
+  padding:14px 32px;
+  margin:8px;
+  font-weight:700;
+  font-size:16px;
+  color:#000;
+  background:linear-gradient(135deg,#00fff0,#00b3ff);
+  border-radius:35px;
+  text-decoration:none;
+  box-shadow:
+    0 6px 15px rgba(0,255,255,0.5),
+    inset 0 -3px 6px rgba(255,255,255,0.3);
+  transition:.35s ease;
+  overflow:hidden;
+  border:none;
+  cursor:pointer;
+}
+.btn::before{
+  content:'';
+  position:absolute;
+  top:100%;
+  left:0;
+  width:100%;
+  height:60%;
+  background:linear-gradient(to top,rgba(255,255,255,.35),transparent);
+  filter:blur(3px);
+  transform:rotateX(180deg);
+}
+
+/* ================= HEADINGS ================= */
+h2,h3{
+  color:#00ffff;
+  text-shadow:0 0 4px #00ffff,0 0 15px #00c2ff;
+}
+
+/* ================= BOX ================= */
+.box{
+  max-width:1100px;
+  margin:40px auto;
+  padding:30px;
+  background:#111;
+  border-radius:18px;
+  border:1px solid #00ffff;
+  box-shadow:0 0 30px #00ffff55;
+  transition:.3s ease;
+}
+
+/* ================= TOKENOMICS ================= */
+.tokenomics-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.token-box{
+  background:#0f0f0f;
+  border:1px solid #00ffff;
+  border-radius:16px;
+  padding:20px;
+  text-align:center;
+  box-shadow:0 0 20px #00ffff66;
+  transition:.35s ease;
+}
+
+/* ================= CHART ================= */
+.chart-frame{
+  border:2px solid #00ffff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 0 25px #00ffff88;
+}
+.chart-frame iframe{
+  width:100%;
+  height:500px;
+  border:0;
+}
+
+/* ================= CODE ================= */
+code{
+  background:#222;
+  padding:8px 12px;
+  border-radius:6px;
+  color:#00ff99;
+  display:inline-block;
+  word-break:break-all;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  text-align:center;
+  padding:25px;
+  color:#aaa;
+  font-size:14px;
+  border-top:1px solid #222;
+  margin-top:60px;
+}
+
+/* ================= ANIMATIONS (TOGGLE BASED) ================= */
+.animate .btn:hover{
+  transform:translateY(-6px) scale(1.05);
+  box-shadow:0 15px 35px rgba(0,255,255,.85);
+}
+.animate .box:hover{
+  transform:translateY(-6px);
+}
+.animate .token-box:hover{
+  transform:translateY(-8px) scale(1.06);
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+  .banner-wrapper img{height:360px}
+  .banner-text h1{font-size:34px}
+  .logo{width:120px}
+}
+</style>
+</head>
+
+<body class="animate">
+
+<!-- BANNER -->
+<div class="banner-wrapper">
+  <img src="CMTOKEN_BANNER.png" alt="CM Token Banner">
+  <div class="banner-text">
+    <h1>CM TOKEN</h1>
+    <p>Transparency • Security • Community</p>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <a href="CMTOKEN.pdf" class="btn">Whitepaper</a>
+  <a href="https://t.me/+eKCpc4oB23Y0ZDlk" class="btn">Telegram</a>
+  <a href="https://pancakeswap.finance/swap?outputCurrency=0x01490f2CB179D767B57131fC4bF098d3Bbcb4dFE" class="btn">Pair</a>
+  <button id="toggleAnim" class="btn">Disable Animations</button>
+
+  <img src="CM_TOKEN.png" class="logo" alt="CM Token Logo">
+</header>
+
+<!-- ABOUT -->
+<section class="box">
+  <h2>About CM Token</h2>
+  <p>
+    CM Token is a BEP-20 token deployed on the BNB Smart Chain.
+    The contract is verified on BscScan and ownership has been permanently renounced.
+    Total supply is fixed and verifiable on-chain.
+  </p>
+  <p><strong>Contract Address:</strong></p>
+  <code>0x01490f2CB179D767B57131fC4bF098d3Bbcb4dFE</code>
+</section>
+
+<!-- TRUST -->
+<section class="box">
+  <h2>Trust & Transparency</h2>
+  <ul>
+    <li>✅ Verified contract on BscScan</li>
+    <li>✅ Ownership permanently renounced</li>
+    <li>✅ Mint function restricted to onlyOwner</li>
+    <li>✅ Fixed total supply</li>
+    <li>✅ Liquidity locked</li>
+  </ul>
+</section>
+
+
+<!-- BURN EVENTS -->
+<section class="box">
+  <h2>🔥 Token Burn</h2>
+
+  <p>
+    A portion of the total supply has been permanently burned to reduce circulating supply.
+    Burn transactions are fully transparent and verifiable on-chain via BscScan.
+  </p>
+
+  <p><strong>Burn Transaction Hash:</strong></p>
+
+  <code>
+    0xdf3bec27fb48f137ec3fd29c5248f3cc0e4cb45d76f098a91027eb2740e3f72d
+  </code>
+
+  <p style="margin-top:15px;">
+    <a 
+      href="https://bscscan.com/tx/0xdf3bec27fb48f137ec3fd29c5248f3cc0e4cb45d76f098a91027eb2740e3f72d"
+      target="_blank"
+      class="btn"
+    >
+      View Burn on BscScan
+    </a>
+  </p>
+</section>
+<!-- MINT FUNCTION EXPLANATION -->
+<section class="box">
+  <h2>🧩 Mint Function Clarification</h2>
+
+  <p>
+    The smart contract contains a mint function that is strictly restricted by the
+    <code>onlyOwner</code> modifier.
+  </p>
+
+  <p>
+    Ownership of the contract has been permanently renounced, which means there is
+    no owner address capable of calling the mint function.
+  </p>
+
+  <p>
+    As a result, minting new tokens is technically impossible.
+    The total supply is fixed and verifiable on-chain.This behavior is fully transparent and verifiable on-chain via BscScan.
+  </p>
+
+  <p><strong>Ownership Status:</strong> Renounced (irreversible)</p>
+</section>
+<!-- OWNERSHIP RENOUNCED -->
+<section class="box">
+  <h2>🔐 Ownership Renounced</h2>
+
+  <p>
+    Ownership of the CM Token smart contract has been permanently renounced.
+    This removes all privileged control and ensures that no owner-only functions
+    can ever be executed again.
+  </p>
+
+  <p>
+    After ownership renouncement, no address has permission to call restricted
+    functions such as minting. The token supply is therefore fixed and immutable.
+  </p>
+
+  <p><strong>Ownership Status:</strong> Renounced (irreversible)</p>
+
+  <p><strong>Ownership Renounce Transaction:</strong></p>
+
+  <code>
+    0x5459d7c7fbbbc51620a2d59679563e80cb7a0aff9f39dc8ee0021a95ccbe242f
+  </code>
+
+  <p style="margin-top:15px;">
+    <a
+      href="https://bscscan.com/tx/0x5459d7c7fbbbc51620a2d59679563e80cb7a0aff9f39dc8ee0021a95ccbe242f"
+      target="_blank"
+      class="btn"
+    >
+      View Ownership Renounce on BscScan
+    </a>
+  </p>
+</section>
+<!-- ROADMAP -->
+<section class="box">
+  <h2>🗺️ Roadmap</h2>
+
+  <div class="tokenomics-grid">
+
+    <div class="token-box">
+      <h3>Q1 – Foundation</h3>
+      <p>Token deployment on BNB Smart Chain</p>
+      <p>Contract verification on BscScan</p>
+      <p>Ownership permanently renounced</p>
+      <p>Initial liquidity added</p>
+      <p>Token burn executed</p>
+    </div>
+
+    <div class="token-box">
+      <h3>Q2 – Platform Setup</h3>
+      <p>Official website launch</p>
+      <p>Transparency sections added</p>
+      <p>Android app development (V1)</p>
+      <p>Community information dashboard</p>
+    </div>
+
+    <div class="token-box">
+      <h3>Q3 – App Expansion</h3>
+      <p>Engagement & activity system</p>
+      <p>Educational content integration</p>
+      <p>Advertisement support for sustainability</p>
+      <p>App performance optimization</p>
+    </div>
+
+    <div class="token-box">
+      <h3>Q4 – Ecosystem Growth</h3>
+      <p>Advanced wallet connectivity</p>
+      <p>Community governance tools</p>
+      <p>Utility expansion exploration</p>
+      <p>Long-term maintenance & security upgrades</p>
+    </div>
+
+  </div>
+
+  <p style="margin-top:25px; color:#ccc; font-size:14px; text-align:center;">
+    This roadmap outlines planned development milestones and does not represent
+    financial or investment guarantees.
+  </p>
+</section>
+<!-- SECURITY & AUDIT SECTION -->
+<section class="box">
+  <h2>🔐 Security & Audit Transparency</h2>
+
+  <p style="color:#ddd; font-size:16px; line-height:1.7;">
+    CM Token follows a transparent, security-first approach.
+    The smart contract is publicly verified and all critical security
+    aspects are fully verifiable on-chain and via trusted third-party tools.
+  </p>
+
+  <ul style="margin-top:20px; line-height:1.9;">
+    <li>✅ Smart contract verified on <strong>BscScan</strong></li>
+    <li>✅ Ownership permanently <strong>renounced</strong></li>
+    <li>✅ Mint function restricted to <code>onlyOwner</code></li>
+    <li>✅ No owner exists after renouncement, minting is impossible</li>
+    <li>✅ Total supply is fixed and cannot be increased</li>
+  </ul>
+
+  <div style="margin-top:30px; display:flex; flex-wrap:wrap; gap:15px; justify-content:center;">
+
+    <a href="https://bscscan.com/address/0x01490f2CB179D767B57131fC4bF098d3Bbcb4dFE"
+       target="_blank"
+       class="btn">
+       🔍 View Contract on BscScan
+    </a>
+
+    <a href="https://tokensniffer.com/token/bsc/0x01490f2cb179d767b57131fc4bf098d3bbcb4dfe"
+       target="_blank"
+       class="btn">
+       🛡 TokenSniffer Audit
+    </a>
+
+    <a href="https://gopluslabs.io/token-security/56/0x01490f2CB179D767B57131fC4bF098d3Bbcb4dFE"
+       target="_blank"
+       class="btn">
+       🔎 GoPlus Security Scan
+    </a>
+
+  </div>
+
+  <p style="margin-top:25px; font-size:14px; color:#aaa; text-align:center;">
+    Security data is provided by public blockchain verification and automated
+    third-party analysis tools. No private or hidden permissions exist.
+  </p>
+</section>
+
+<!-- TOKENOMICS -->
+<section class="box">
+  <h2>Tokenomics</h2>
+  <div class="tokenomics-grid">
+    <div class="token-box"><h3>Total Supply</h3><p>10,000,000,000 CM</p></div>
+    <div class="token-box"><h3>Liquidity</h3><p>50%</p></div>
+    <div class="token-box"><h3>Team & Dev</h3><p>10%</p></div>
+    <div class="token-box"><h3>Marketing</h3><p>10%</p></div>
+    <div class="token-box"><h3>Airdrop</h3><p>5%</p></div>
+  </div>
+<section class="box">
+  <h2>📈 Live Chart</h2>
+
+  <div class="chart-frame">
+    <iframe
+      src="https://www.geckoterminal.com/bsc/pools/0xaf4Da15fE7c64B3A868d7FA6A1F070D4197DCa0e?embed=1"
+      width="100%"
+      height="500"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <p style="color:#aaa;font-size:13px;margin-top:10px;text-align:center;">
+    Live chart powered by GeckoTerminal
+  </p>
+</section>
+
+
+
+<!-- LIVE CHART -->
+<section class="box">
+  <h2>📈 Live Chart</h2>
+  <div class="chart-frame">
+    <iframe src="https://dexscreener.com/bsc/0x01490f2CB179D767B57131fC4bF098d3BBcb4dFE?embed=1"></iframe>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+CM Token is not an investment product. This website is for informational purposes only.
+</footer>
+
+<!-- TOGGLE SCRIPT -->
+<script>
+let enabled = true;
+document.getElementById("toggleAnim").onclick = function(){
+  document.body.classList.toggle("animate");
+  enabled = !enabled;
+  this.innerText = enabled ? "Disable Animations" : "Enable Animations";
+};
+</script>
+
+</body>
+</html>
